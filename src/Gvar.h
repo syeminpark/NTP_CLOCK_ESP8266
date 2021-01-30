@@ -26,7 +26,7 @@ const int EXIT = 15;
 int counter = 0;
 int alarmCounter = 0;
 boolean upValue = false;
-boolean downValue = true;
+boolean downValue = false;
 
 boolean AlarmMenu = false;
 boolean waitFin = false;
@@ -50,5 +50,6 @@ int ss;
 int secResult;
 int minResult = 0;
 int hourResult = 0;
+
 
 #endif

@@ -51,6 +51,7 @@ ICACHE_RAM_ATTR void ENTERInterrupt()
         state += 1;
         if (state > 2)
         {
+            state = 2;
             //알람 변경
             if (counter == 1)
             {
@@ -58,9 +59,9 @@ ICACHE_RAM_ATTR void ENTERInterrupt()
                 if (alarmCounter > 2)
                 {
                     alarmCounter = 0;
+                    state = 0;
                 }
             }
-            state = 2;
         }
     }
 }

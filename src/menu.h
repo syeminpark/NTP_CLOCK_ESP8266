@@ -20,7 +20,7 @@ void Info()
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(BLACK, WHITE);
-    display.setCursor(40, 0);
+    display.setCursor(50, 0);
     display.println(" Info ");
 }
 

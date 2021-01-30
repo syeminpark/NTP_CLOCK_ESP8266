@@ -5,8 +5,9 @@ void AlarmStruc(int _alarmMin, int _alarmHour);
 
 void alarm(boolean _AlarmMENU)
 {
-    static int AlarmHour = 9;
-    static int AlarmMin = 0;
+    static int AlarmHour = EEPROM.read(1);
+    static int AlarmMin = EEPROM.read(2);
+
     switch (alarmCounter)
     {
     case 1:
@@ -26,6 +27,7 @@ void alarm(boolean _AlarmMENU)
                 AlarmHour = 23;
             }
         }
+
         upValue = false;
         downValue = false;
 
@@ -60,6 +62,11 @@ void alarm(boolean _AlarmMENU)
         }
         upValue = false;
         downValue = false;
+        EEPROM.write(1, AlarmHour);
+        EEPROM.write(2, AlarmMin);
+        EEPROM.commit();
+        AlarmHour = EEPROM.read(1);
+        AlarmMin = EEPROM.read(2);
         break;
     }
 
@@ -67,24 +74,27 @@ void alarm(boolean _AlarmMENU)
 
     if (_AlarmMENU)
     {
+
         display.clearDisplay();
         display.setTextSize(1);
-
         display.setTextColor(BLACK, WHITE);
         display.setCursor(45, 0);
         display.println(" ALARM ");
         display.setTextSize(2);
         display.setTextColor(WHITE);
         display.setCursor(38, 15);
+
         addZero(AlarmHour, AlarmMin, noSec);
 
         display.drawLine(AS_xpos[alarmCounter], 31, AS_xpos[alarmCounter] + 20, 31, WHITE);
     }
     else
     {
+
         display.setTextColor(WHITE);
         display.setTextSize(1);
         display.setCursor(20, 23);
+
         addZero(AlarmHour, AlarmMin, noSec);
         display.print("   ");
         addZero(hourResult, minResult, secResult);

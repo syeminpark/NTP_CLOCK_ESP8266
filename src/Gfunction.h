@@ -64,12 +64,28 @@ void initialize()
     attachInterrupt(digitalPinToInterrupt(EXIT), EXITInterrupt, FALLING);
 
     Serial.begin(115200);
+    EEPROM.begin(512);
+
     WiFi.begin(ssid, password);
 
     while (WiFi.status() != WL_CONNECTED)
     {
-        delay(1000);
-        printf(".");
+
+        // display.clearDisplay();
+        // display.setTextSize(2);
+        // display.setTextColor(WHITE);
+        // display.setCursor(0, 10);
+        // display.println("NO WIFI");
+        // display.display();
+
+        // stopper.attach_ms(5000, wait);
+
+        // if (waitFin)
+        // {
+        //     stopper.detach();
+        //     waitFin = false;
+        break;
+        // }
     }
     if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
     {
