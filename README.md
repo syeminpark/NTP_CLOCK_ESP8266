@@ -1,6 +1,6 @@
 # NTP_CLOCK_ESP8266
 
-Based On ESP8266
+Based On ESP8266 & OLED Monitor
 
 - Alarm Timer Setting 
 - NTP Server Update
